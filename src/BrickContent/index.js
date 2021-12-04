@@ -59,9 +59,11 @@ const BrickContent = () => {
             newStack.splice(result.destination.index, 0, newWidgetToAdd);
            setWidgetStack(newStack)
         }
-        if (result.source.droppableId === 'widget-container' && widgetStack?.find((item) => item?.id === result.destination.droppableId)) {
-            const data = widgetStack?.find((item) => item?.id === result.destination.droppableId);
-            const fieldIndex = widgetStack.indexOf(data);
+        if (result.source.droppableId === 'widget-container' && result.destination.droppableId?.includes("section-container")) {
+            // const data = widgetStack?.find((item) => item?.id === result.destination.droppableId);
+            const data = widgetStack[result.destination.droppableId?.split("-")[2]]
+            // const fieldIndex = widgetStack.indexOf(data);
+            const fieldIndex = result.destination.droppableId?.split("-")[2]
             const newWidgetToAdd = nativeFieldState.find((item, index) => index === result.source.index);
            
             data.value.splice(result.destination.index, 0, newWidgetToAdd);

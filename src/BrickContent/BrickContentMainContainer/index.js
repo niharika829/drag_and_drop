@@ -120,7 +120,7 @@ const CreateContentMainContainer = ({widgetStack,setWidgetStack}) => {
 
                                                         {widget?.machine_name === 'section' && (
                                                             <Droppable
-                                                                droppableId={widget?.id}
+                                                                droppableId={`section-container-${index}`}
                                                                 key="droppableSubItem"
                                                                 renderClone={(provider, snapshot, rubric) => (
                                                                     <div
